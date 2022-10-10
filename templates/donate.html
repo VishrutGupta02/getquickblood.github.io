@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="/static/styles.css" rel="stylesheet">
+        <title> donate blood </title>
+    </head>
+
+    <body style="background-image: url(/static/donors-bg.jpeg);">
+        <header>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="/faq"> FAQ </a></li>
+                <li class="list-inline-item"><a href="/collaborators"> Collaborators </a></li>
+                <li class="list-inline-item"><a href="/iWaitlist"> Waitlist </a></li>
+                <li class="list-inline-item"><a href="/donate" style="color: AntiqueWhite"> Donate Blood </a></li>
+                <li class="list-inline-item"><a href="/help"> Request help </a></li>&nbsp
+                <li class="list-inline-item" style="float: left; font-size: 2.2vw;"><a href="/"> getQuickBlood.com </a></li>
+            </ul>
+        </header>
+        <br>
+
+        <div class="content">
+                {% if message %}
+                    {% if not message2 %}
+                        <h3>Thank you for registering with us!</h3>
+                        <h5>Remember you can donate only once every 6 months</h5>
+                        <br>
+                        <h5>You can add more responses below</h5>
+                    {% endif %}
+                {% else %}
+                    <h4> Please fill in the details below to add yourself in our donor's list </h4>
+                {% endif %}
+
+
+                {% if message2 %}
+                <form action="/confirm" method="get">
+                    <p> Please enter your first name </p>
+                    <input name="first_name" value = "{{ fname }}" required>
+                    <p></p>
+                    <p> Please enter your last name </p>
+                    <input name="last_name" value = "{{ lname }}">
+                    <p></p>
+                    <p> Please select your blood group</p><p></p>
+                    <select name="bloodGroup" required>
+                        <option value="" disabled selected hidden> Blood Group </option>
+                        <option value='A+'>A-positive (A+) </option>
+                        <option value='A-'>A-negative (A-) </option>
+                        <option value='B+'>B-positive (B+) </option>
+                        <option value='B-'>B-negative (B-) </option>
+                        <option value='AB+'>AB-positive (AB+) </option>
+                        <option value='AB-'>AB-negative (AB-) </option>
+                        <option value='O+'>O-positive (O+) </option>
+                        <option value='O-'>O-negative (O-) </option>
+                    </select>
+                    <p></p>
+                    <p> Please enter your email address </p>
+                    <input name="email" value = "{{ email }}" required>
+                    <p></p>
+                    <p> Please enter your mobile number(optional) </p>
+                    <input name="mobile" value = "{{ mobile }}">
+                    <p></p>
+                    <p> Please enter your age </p>
+                    <input name="age" value = "{{ age }}" type="number" min="18" max="65" required>
+                    <p></p>
+                    <p> Please enter your address (It helps us provide better data) </p>
+                    <input name="pincode" value = "{{ pin }}" required>
+                    <input name="state" value = "{{ state }}" required>
+                    <input name="country" value = "{{ country }}" required>
+                    <p></p>
+                    <p> Please enter any additional info you would like us to know </p>
+                    <input name="extra" value = "{{ extra }}" spellcheck="true">
+                    <p></p>
+                    <p> This password is already taken </p>
+                    <input autocomplete="off" autofocus required name="password" placeholder="password" type="text">
+                    <input type="submit" value=" submit data ">
+                </form>
+
+                {% else %}
+                <form action="/confirm" method="get">
+                    <p> Please enter your first name </p>
+                    <input autocomplete="off" autofocus required name="first_name" placeholder="First Name" type="text">
+                    <p></p>
+                    <p> Please enter your last name </p>
+                    <input autocomplete="off" autofocus name="last_name" placeholder="Last Name" type="text">
+                    <p></p>
+                    <p> Please select your blood group</p><p></p>
+                    <select name="bloodGroup" required>
+                        <option value="" disabled selected hidden> Blood Group </option>
+                        <option value='A+'>A-positive (A+) </option>
+                        <option value='A-'>A-negative (A-) </option>
+                        <option value='B+'>B-positive (B+) </option>
+                        <option value='B-'>B-negative (B-) </option>
+                        <option value='AB+'>AB-positive (AB+) </option>
+                        <option value='AB-'>AB-negative (AB-) </option>
+                        <option value='O+'>O-positive (O+) </option>
+                        <option value='O-'>O-negative (O-) </option>
+                    </select>
+                    <p></p>
+                    <p> Please enter your email address </p>
+                    <input autocomplete="off" autofocus required name="email" placeholder="Email" type="email">
+                    <p></p>
+                    <p> Please enter your mobile number (optional) </p>
+                    <input autocomplete="off" autofocus name="mobile" placeholder="Phone number" type="number" style="width: 130px">
+                    <p></p>
+                    <p> Please enter your age </p>
+                    <input autocomplete="off" autofocus required name="age" placeholder="Age    " type="number" min="18" max="65" style="width: 50px">
+                    <p></p>
+                    <p> Please enter your address </p>
+                    <input autocomplete="off" autofocus required name="pincode" placeholder="Pincode" type="text">
+                    <input autocomplete="off" autofocus required name="state" placeholder="State" type="text">
+                    <input autocomplete="off" autofocus required name="country" placeholder="Country" type="text">
+                    <p></p>
+                    <p> Please enter any additional info you would like us to know (optional) </p>
+                    <input autocomplete="off" autofocus name="extra" placeholder="Type here..." type="text">
+                    <p></p>
+                    <p> Create password </p>
+                    <input autocomplete="off" autofocus required name="password" placeholder="Password" type="text">
+                    <input type="submit" value=" submit data ">
+                </form>
+                {% endif %}
+        </div>
+        </br>
+
+    </body>
+</html>
+

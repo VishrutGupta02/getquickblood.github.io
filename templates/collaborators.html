@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Collaborators</title>
+    </head>
+
+    <body style="background-image: url(/static/collaborators-bg.jpeg)">
+        <header>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="/faq"> FAQ </a></li>
+                <li class="list-inline-item"><a href="/collaborators" style="color: AntiqueWhite"> Collaborators </a></li>
+                <li class="list-inline-item"><a href="/iWaitlist"> Waitlist </a></li>
+                <li class="list-inline-item"><a href="/donate"> Donate Blood </a></li>
+                <li class="list-inline-item"><a href="/help"> Request help </a></li>&nbsp
+                <li class="list-inline-item" style="float: left; font-size: 2.2vw;"><a href="/"> getQuickBlood.com </a></li>
+            </ul>
+        </header>
+        </br>
+        <div style="margin: 0.4vw">
+            <h1>HELLO!</h1>
+            <h2> Following is a list of brands/people helping us with our initiative </h2>
+            </br>
+            </br>
+            <h4> &#160&#160&#160**Coming soon...** </h4>
+            </br>
+            </br>
+            <h2> A list of donors </h2>
+            <table id="customers">
+                <tr>
+                    <th>Name</th>
+                    <th>Blood group</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>Location</th>
+                    <th>Additional info</th>
+                    <th>Remove name</th>
+                </tr>
+
+                {% for row in donor_data %}
+                    <tr>
+                        <td>{{ row["first_name"] }} {{ row["last_name"] }}</td>
+                        <td>{{ row["blood_group"] }}</td>
+                        <td> {{ row["email"] }} </td>
+                        <td>{{ row["age"] }}</td>
+                        <td>{{ row["state"] }}, {{ row["country"] }}</td>
+                        {% if row["additional_info"]=="" %}
+                            <td> -- </td>
+                            {% else %}
+                            <td>{{ row["additional_info"] }}</td>
+                            {% endif %}
+                        <td><form method = "get" action="/deactivate">
+                                <input type="submit password" name="cancel" placeholder="enter password" autocomplete="off">
+                                <input type="hidden" name="row" value="{{ row['email'] }}">
+                        </form></td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+
+    </body>
+</html>
+

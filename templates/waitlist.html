@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Waitlist</title>
+    </head>
+
+    <body style="background-image: url(/static/waitlist-bg.jpeg);">
+        <header>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="/faq"> FAQ </a></li>
+                <li class="list-inline-item"><a href="/collaborators"> Collaborators </a></li>
+                <li class="list-inline-item"><a href="/iWaitlist" style="color: AntiqueWhite"> Waitlist </a></li>
+                <li class="list-inline-item"><a href="/donate"> Donate Blood </a></li>
+                <li class="list-inline-item"><a href="/help"> Request help </a></li>&nbsp
+                <li class="list-inline-item" style="float: left; font-size: 2.2vw;"><a href="/"> getQuickBlood.com </a></li>
+            </ul>
+        </header>
+
+        <br>
+        <h3> The following is a list of people in urgent need of help  </h3>
+        <table id="table-2">
+            <tr>
+                <th>blood group</th>
+                <th>name</th>
+                <th>email</th>
+                <th>mobile</th>
+                <th>country</th>
+                <th>state</th>
+              </tr>
+
+              {% for row in data %}
+                <tr>
+                    <td> {{ row["blood_group"] }} </td>
+                    <td> {{ row["name"] }} </td>
+                    <td> {{ row["email"] }} </td>
+                    <td> {{ row["mobile"] }} </td>
+                    <td> {{ row["country"] }} </td>
+                    <td> {{ row["state"] }} </td>
+                </tr>
+              {% endfor %}
+        </table>
+
+    </body>
+</html>
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Helpdata</title>
+    </head>
+    <body style="background-image: url(/static/collaborators-bg.jpeg); background-size: cover;">
+        <header>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="/faq"> FAQ </a></li>
+                <li class="list-inline-item"><a href="/collaborators"> Collaborators </a></li>
+                <li class="list-inline-item"><a href="/iWaitlist"> Waitlist </a></li>
+                <li class="list-inline-item"><a href="/donate"> Donate Blood </a></li>
+                <li class="list-inline-item"><a href="/help" style="color: AntiqueWhite"> Request help </a></li>&nbsp
+                <li class="list-inline-item" style="float: left; font-size: 2.2vw;"><a href="/"> getQuickBlood.com </a></li>
+            </ul>
+        </header>
+
+        <p></p>
+
+        {% if message %}
+            <div class="alert alert-dark" role="alert">
+                <p> We are glad we could be of help😊 </p>
+                <p> Get well soon! </p>
+            </div>
+        {% else %}
+
+            <p> Hello {{name}} </p>
+            {% if message2 %}
+                There are no suitable donors from your country in our database
+            {% endif %}
+            <p> The following is a list of people you can choose to get help from </p>
+            <table id="customers">
+                <tr>
+                    <th>blood group</th>
+                    <th>name</th>
+                    <th>location</th>
+                    <th>email</th>
+                    <th>mobile</th>
+                    <th>age</th>
+                    <th>additional info</th>
+                </tr>
+
+                {% for row in data %}
+                    <tr>
+                        <td> {{ row["blood_group"] }} </td>
+                        <td> {{ row["first_name"] }} {{ row["last_name"] }} </td>
+                        <td> {{ row["state"] }} - {{ row["pincode"] }}, {{ row["country"] }} </td>
+                        <td> {{ row["email"] }} </td>
+                        {% if row["mobile"]=="" %}
+                            <td> -- </td>
+                            {% else %}
+                            <td> {{ row["mobile"] }} </td>
+                        {% endif %}
+                        <td> {{ row["age"] }} </td>
+                        {% if row["additional_info"]=="" %}
+                            <td> -- </td>
+                            {% else %}
+                            <td> {{ row["additional_info"] }} </td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            </table>
+
+            <p> Did you get the required help? </p>
+
+            <form action:link method="post">
+                <select name="gotHelp" required>
+                    <option value="y"> Yes, thank you  </option>
+                    <option value="n"> No, add my name to waitlist  </option>
+                </select>
+                <input type="submit">
+            </form>
+        {% endif %}
+
+    </body>
+</html>

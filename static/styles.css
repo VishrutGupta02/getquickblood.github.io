@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+ }
+
+main {
+    padding: 0px;
+}
+
+header {
+    position: sticky;
+    top:0;
+    background: #97afa3;
+    font-family: Times;
+    font-weight: 500;
+    font-size: 1.25vw;
+    letter-spacing: .15em;
+    height: 3vw;
+    }
+
+.content {
+    margin: 0px 10px 0px;
+}
+
+
+.list-inline {
+    list-style-type: none;
+}
+
+.list-inline-item {
+    font-size: 1.25vw;
+    float: right;
+    text-align: right;
+    padding: 0px 5px 5px;
+}
+
+
+.index-top {
+    margin: auto;
+    text-align: center;
+    font-family: "American Typewriter";
+}
+
+.index-1 {
+    display: grid;
+    grid-template-columns: 15vw 15vw 15vw;
+    grid-template-rows: 15vw;
+    min-width: 30px;
+    min-height: 10px;
+    gap: 10px;
+    padding: 5px;
+    margin: auto;
+}
+
+.index-2 {
+    display: grid;
+    grid-template-columns: 15vw 15vw;
+    grid-template-rows: 15vw;
+    min-width: 30px;
+    min-height: 10px;
+    gap: 10px;
+    padding: 5px;
+    margin: auto;
+}
+
+.index-box {
+    background-color: bisque;
+    border: thick black;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.index-box-text {
+    font-size: 1.3vw;
+    font-family: "Courier New";
+}
+
+
+.dropdown{
+    width: 95vw;
+}
+
+.dropdown-toggle{
+    width: 95vw;
+    padding: 1vh;
+    background-color: slategray;
+    color: white;
+    margin: 0.5vh;
+}
+
+.dropdown-menu{
+    width: 95vw;
+    padding: 2vh;
+}
+
+
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 95vw;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:nth-child(odd){background-color: #ffffff;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+
+
+#table-2 {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 95vh;
+    margin: 5px;
+}
+
+#table-2 td, #table-2 th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#table-2 tr:nth-child(even){background-color: #f2f2f2;}
+#table-2 tr:nth-child(odd){background-color: #ffffff;}
+
+#table-2 th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+
+.bg-image {
+    background-image: url("help-bg.jpeg");
+    background-color: #000000;
+    height: 97vh;
+    width: 50vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: right;
+}
+
